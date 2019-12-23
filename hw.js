@@ -1,75 +1,131 @@
-JavaScript 教程
-JavaScript 是 Web 的编程语言。
+JavaScript 简介
+JavaScript 是互联网上最流行的脚本语言，这门语言可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。
 
-所有现代的 HTML 页面都使用 JavaScript。
+JavaScript 是脚本语言
+JavaScript 是一种轻量级的编程语言。
 
-JavaScript 非常容易学。
+JavaScript 是可插入 HTML 页面的编程代码。
 
-本教程将教你学习从初级到高级JavaScript知识。
+JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。
 
-JavaScript 在线实例
-本教程包含了大量的 JavaScript 实例， 您可以点击 "尝试一下" 来在线查看实例。
+JavaScript 很容易学习。
+
+您将学到什么
+下面是您将在本教程中学到的主要内容。
+
+JavaScript：直接写入 HTML 输出流
+实例
+document.write("<h1>这是一个标题</h1>");
+document.write("<p>这是一个段落。</p>");
+
+尝试一下 »
+
+lamp	您只能在 HTML 输出中使用 document.write。如果您在文档加载后使用该方法，会覆盖整个文档。
+
+JavaScript：对事件的反应
+实例
+<button type="button" onclick="alert('欢迎!')">点我!</button>
+
+尝试一下 »
+alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。
+
+onclick 事件只是您即将在本教程中学到的众多事件之一。
+
+JavaScript：改变 HTML 内容
+使用 JavaScript 来处理 HTML 内容是非常强大的功能。
 
 实例
-我的第一个 JavaScript 程序
-这是一个段落
+x=document.getElementById("demo");  //查找元素
+x.innerHTML="Hello JavaScript";    //改变内容
 
-显示日期
+尝试一下 »
+您会经常看到 document.getElementById("some id")。这个方法是 HTML DOM 中定义的。
+
+DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。
+
+您将在本教程的多个章节中学到有关 HTML DOM 的知识。
+
+JavaScript：改变 HTML 图像
+本例会动态地改变 HTML <image> 的来源（src）：
+
+点亮灯泡
+<script>
+function changeImage()
+{
+    element=document.getElementById('myimage')
+    if (element.src.match("bulbon"))
+    {
+        element.src="/images/pic_bulboff.gif";
+    }
+    else
+    {
+        element.src="/images/pic_bulbon.gif";
+    }
+}
+</script>
+<img id="myimage" onclick="changeImage()" src="/images/pic_bulboff.gif" width="100" height="180">
+点击以下灯泡查看效果：
+
+
+点击灯泡就可以打开或关闭这盏灯
 
 
 尝试一下 »
-在每个页面您可以点击 "尝试一下" 在线查看实例！！！
+以上实例中代码 element.src.match("bulbon") 的作用意思是：检索 <img id="myimage" onclick="changeImage()" src="/images/pic_bulboff.gif" width="100" height="180"> 里面 src 属性的值有没有包含 bulbon 这个字符串，如果存在字符串 bulbon，图片 src 更新为 bulboff.gif，若匹配不到 bulbon 字符串，src 则更新为 bulbon.gif
 
-尝试每个实例，并且在线修改代码，查看不同的运行效果！！！
+JavaScript 能够改变任意 HTML 元素的大多数属性，而不仅仅是图片。
 
-Note	如果能根据本站的实例一步一个脚印学习，你将会在很短的时间内学会 JavaScript。
+JavaScript：改变 HTML 样式
+改变 HTML 元素的样式，属于改变 HTML 属性的变种。
 
-为什么学习 JavaScript?
-JavaScript web 开发人员必须学习的 3 门语言中的一门：
+实例
+x=document.getElementById("demo")  //找到元素 
+x.style.color="#ff0000";           //改变样式
 
-HTML 定义了网页的内容
-CSS 描述了网页的布局
-JavaScript 网页的行为
-本教程是关于 JavaScript 及介绍 JavaScript 如何与 HTML 和 CSS 一起工作。
+尝试一下 »
+
+JavaScript：验证输入
+JavaScript 常用于验证用户的输入。
+
+实例
+if isNaN(x) {
+    alert("不是数字");
+}
+
+尝试一下 »
+以上实例只是普通的验证，如果要在生产环境中使用，需要严格判断，如果输入的空格，或者连续空格 isNaN 是判别不出来的。可以添加正则来判断（后续章节会说明）：
+
+实例
+if(isNaN(x)||x.replace(/(^\s*)|(\s*$)/g,"")==""){
+    alert("不是数字");
+}
+
+尝试一下 »
+
+您知道吗？
+lamp	JavaScript 与 Java 是两种完全不同的语言，无论在概念上还是设计上。
+Java（由 Sun 发明）是更复杂的编程语言。
+
+ECMA-262 是 JavaScript 标准的官方名称。
+
+JavaScript 由 Brendan Eich 发明。它于 1995 年出现在 Netscape 中（该浏览器已停止更新），并于 1997 年被 ECMA（一个标准协会）采纳。
+ECMAScript 版本
+JavaScript 已经由 ECMA（欧洲电脑制造商协会）通过 ECMAScript 实现语言的标准化。
+
+年份	名称	描述
+1997	ECMAScript 1	第一个版本
+1998	ECMAScript 2	版本变更
+1999	ECMAScript 3	添加正则表达式
+添加 try/catch
+ECMAScript 4	没有发布
+2009	ECMAScript 5	添加 "strict mode"，严格模式
+添加 JSON 支持
+2011	ECMAScript 5.1	版本变更
+2015	ECMAScript 6	添加类和模块
+2016	ECMAScript 7	增加指数运算符 (**)
+增加 Array.prototype.includes
+ECMAScript 6 也称为 ECMAScript 2015。
+
+ECMAScript 7 也称为 ECMAScript 2016。
 
 
-谁适合阅读本教程?
-1. 如果您想学习 JavaScript，您可以学习本教程：
-
-了解 JavaScript 是如何与 HTML 和 CSS 一起工作的。
-
-2. 如果在此之前您已经使用过 JavaScript，您也可以阅读本教程：
-
-JavaScript 一直在升级，所以我们需要时刻了解 JavaScript 的新技术。
-
-
-阅读本教程前，您需要了解的知识：
-阅读本教程，您需要有以下基础：
-
-HTML 教程
-CSS 教程
-
-JavaScript 实例
-学习 100 多个 JavaScript 实例！
-
-在实例页面中，您可以点击 "尝试一下" 来查看 JavaScript 在线实例。
-
-JavaScript 实例
-JavaScript 对象实例
-JavaScript 浏览器支持实例
-JavaScript HTML DOM 实例
-
-JavaScript 测验
-在菜鸟教程中测试您的 JavaScript 技能！
-
-
-JavaScript 参考手册
-在菜鸟教程中，我们为您提供完整的 JavaScript 对象、浏览器对象、HTML DOM 对象参考手册。
-
-以下手册包含了每个对象、属性、方法的实例。
-
-JavaScript 内置对象
-Browser 对象
-HTML DOM 对象
-HTML/CSS/JS 在线工具
-HTML/CSS/JS 在线工具可以在线编辑 HTML、CSS、JS 代码，并实时查看效果，你也可以将优质代码保存分享：https://c.runoob.com/front-end/61
